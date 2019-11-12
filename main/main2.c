@@ -6,6 +6,6 @@
 
 int main(void)
 {
-	ft_printf("%d", 15);
+	ft_printf("%x", 15);
 	return (0);
 }

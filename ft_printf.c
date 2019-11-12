@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 11:54:38 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/12 15:08:34 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/12 18:15:04 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_printf(const char *str, ...)
 		}
 		str++;
 		if (*str != '\0')
-			ft_putchar(*str);
+			write(1, str, 1);
 	}
 	va_end(ap);
 	return (1);
