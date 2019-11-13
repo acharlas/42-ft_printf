@@ -4,6 +4,7 @@ char	*ft_conversion(t_struct *out, va_list ap)
 {
 	char	*convchar;
 
+    convchar = "";
 	if (out->conversion == 'c')
 	{
 		convchar = malloc(sizeof(char) * 2);
@@ -36,6 +37,29 @@ t_struct    *ft_create_str(t_struct *out, va_list ap)
 
 	convchar = ft_conversion(out, ap);
 	realsz = ft_strlen(convchar);
-	out->str = convchar;
+	if (out->flag & DOT)
+	{
+		realsz = realsz > out->precision ? realsz : (out->precision - realsz);
+		t2 = realsz;
+		while (t2--)
+			convchar = ft_strjoin("0", convchar);
+	}
+	if (out->width)
+	{
+		realsz = ft_strlen(convchar);
+		realsz = realsz > out->width ? realsz : (out->width - realsz);
+		t2 = realsz;
+		if (out->flag & MINUS)
+		{
+			while(t2--)
+				convchar = ft_strjoin(convchar," ");
+		}
+		else
+		{
+			while(t2--)
+				convchar = ft_strjoin(" ", convchar);
+		}
+	}
+	out->str = convchar; 
 	return(out);
 }
