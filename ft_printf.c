@@ -17,21 +17,25 @@ int		ft_printf(const char *str, ...)
 	va_list	ap;
 	t_struct *out;
 
+	
 	va_start(ap, str);
 	while(*str)
 	{
-		if(*str == '%' && *str + 1 != '%' && *str + 1 != '\0')
+		if(*str == '%')
 		{
+			out = malloc(sizeof(t_struct));
 			str += 1;
 			out = ft_init_struct(out);
 			out = ft_fill_struct(out, str, ap);
 			out = ft_create_str(out, ap);
-			ft_putstr(out->str);
-			while (*str && (*str != 'd' && *str != 'u' && *str != 'i' && *str != 'c' && *str != 's' && *str != 'p' && *str != 'X' && *str != 'x'))
+			write(1, out->str, ft_strlen(out->str));
+			while (*str && (*str != 'd' && *str != 'u' && *str != 'i' && *str != 'c' && *str != 's' && *str != 'p' && *str != 'X' && *str != 'x' && *str != '%'))
 				str++;
+		free(out);	
 		}
+		
 		str++;
-		if (*str != '\0')
+		if (*str != '\0' && *str != '%')
 			write(1, str, 1);
 	}
 	va_end(ap);

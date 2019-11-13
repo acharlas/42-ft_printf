@@ -2,7 +2,7 @@
 
 t_struct    *ft_init_struct(t_struct *out)
 {
-	out->str = "";
+	out->str = NULL;
 	out->precision = 0;
 	out->width = 0;
 	out->conversion = '\0';

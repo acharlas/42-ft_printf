@@ -4,7 +4,7 @@ char	*ft_conversion(t_struct *out, va_list ap)
 {
 	char	*convchar;
 
-    convchar = "";
+    convchar = ft_strdup("");
 	if (out->conversion == 'c')
 	{
 		convchar = malloc(sizeof(char) * 2);
@@ -25,41 +25,56 @@ char	*ft_conversion(t_struct *out, va_list ap)
 		convchar = ft_itoa_base(va_arg(ap, unsigned int), 16);
 	else if (out->conversion  == 'X')
 		convchar = ft_itoa_base(va_arg(ap, unsigned int), 16);
+	else if (out->conversion  == '%')
+		convchar = ft_strdup("%");
 	return (convchar);
 }
-
 
 t_struct    *ft_create_str(t_struct *out, va_list ap)
 {
 	int	realsz;
-	int t2;
 	char *convchar;
-
 	convchar = ft_conversion(out, ap);
 	realsz = ft_strlen(convchar);
 	if (out->flag & DOT)
 	{
+		if (convchar[0] == '-' && realsz > out->width)
+		{
+			write(1, &convchar[0], 1);
+			convchar++;
+			realsz--;
+		}
 		realsz = realsz > out->precision ? realsz : (out->precision - realsz);
-		t2 = realsz;
-		while (t2--)
+		while ((realsz--) > 0)
 			convchar = ft_strjoin("0", convchar);
 	}
 	if (out->width)
 	{
 		realsz = ft_strlen(convchar);
+		if (convchar[0] == '-' && realsz > out->width)
+			realsz--;
 		realsz = realsz > out->width ? realsz : (out->width - realsz);
-		t2 = realsz;
 		if (out->flag & MINUS)
 		{
-			while(t2--)
+			while((realsz--) > 0)
 				convchar = ft_strjoin(convchar," ");
+		}
+		else if (out->flag & ZERO)
+		{
+			if (convchar[0] == '-')
+			{
+				write(1, "-", 1);
+				convchar++;
+			}
+			while((realsz--) > 0)
+				convchar = ft_strjoin("0", convchar);
 		}
 		else
 		{
-			while(t2--)
+			while(realsz--)
 				convchar = ft_strjoin(" ", convchar);
 		}
 	}
-	out->str = convchar; 
+	out->str = convchar;
 	return(out);
 }

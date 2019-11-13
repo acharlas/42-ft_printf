@@ -39,7 +39,7 @@ t_struct    *ft_fill_struct(t_struct *out,const char *str, va_list ap)
 			str++;
 	}
 	if (*str == 'd' || *str == 'u' || *str == 'i' || *str == 'c' || *str == 's' || *str == 'p'
-			|| *str == 'X' || *str == 'x')
+			|| *str == 'X' || *str == 'x' || *str == '%')
 		out->conversion = *str;
 	if (out->flag & (DOT | MINUS))
 		out->flag &= ~ZERO;

@@ -12,16 +12,16 @@
 
 NAME = libftprintf.a
 
-SRC = ft_atoi.c \
-	  ft_create_str.c \
-	  ft_fill_struct.c \
-	  ft_isdigit.c \
-	  ft_itoa_base.c \
+SRC = ./srclib/ft_atoi.c \
+	  ./srcstruct/ft_create_str.c \
+	  ./srcstruct/ft_fill_struct.c \
+	  ./srclib/ft_isdigit.c \
+	  ./srclib/ft_itoa_base.c \
 	  ft_printf.c \
-	  ft_strdup.c \
-	  ft_strjoin.c \
-	  ft_strlen.c \
-	  init_struct.c
+	  ./srclib/ft_strdup.c \
+	  ./srclib/ft_strjoin.c \
+	  ./srclib/ft_strlen.c \
+	  ./srcstruct/init_struct.c
 
 @CC = gcc
 
@@ -29,7 +29,7 @@ OBJ = $(SRC:.c=.o)
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -g3 -I libft 
+CFLAGS = -Wall -Wextra -Werror -g3 -I headers
 
 all : $(NAME)
 
