@@ -38,7 +38,10 @@ char		*ft_itoa_base(long long c, int n_base)
 	const char	*base = set_base_string(n_base);
 
 	if (c == 0)
+	{
+		free((char *)base);
 		return (ft_strdup("0"));
+	}
 	i = dig_cnt(c, n_base) + (c < 0 ? 1 : 0);
 	neg = (c < 0) ? -1 : 1;
 	c = c * neg;

@@ -6,22 +6,28 @@
 #    By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 11:01:37 by acharlas          #+#    #+#              #
-#    Updated: 2019/11/13 12:02:26 by acharlas         ###   ########.fr        #
+#    Updated: 2019/11/15 16:54:10 by acharlas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRC = ./srclib/ft_atoi.c \
-	  ./srcstruct/ft_create_str.c \
-	  ./srcstruct/ft_fill_struct.c \
 	  ./srclib/ft_isdigit.c \
 	  ./srclib/ft_itoa_base.c \
-	  ft_printf.c \
 	  ./srclib/ft_strdup.c \
 	  ./srclib/ft_strjoin.c \
 	  ./srclib/ft_strlen.c \
-	  ./srcstruct/init_struct.c
+	  ./srclib/ft_strndup.c \
+	  ./srclib/ft_substr.c \
+	  ./srclib/ft_toupper.c \
+	  ./srcstruct/ft_create_str.c \
+	  ./srcstruct/ft_fill_struct.c \
+	  ./srcstruct/init_struct.c \
+	  ./srcstruct/argnum.c \
+	  ./srcstruct/argptr.c \
+	  ./srcstruct/argstr.c \
+	  ft_printf.c
 
 @CC = gcc
 

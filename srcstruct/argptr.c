@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   argptr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 18:43:17 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/12 15:06:01 by acharlas         ###   ########.fr       */
+/*   Created: 2019/11/15 16:31:07 by acharlas          #+#    #+#             */
+/*   Updated: 2019/11/15 16:34:25 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*argptr(t_struct *out,char *convptr)
 {
-	int		i;
-	int		j;
-	char	*tab;
-	int		count;
+	int	bufsize;
 
-	i = 0;
-	j = 0;
-	count = 0;
-	if (!s1 || !s2)
-		return (0);
-	if (!(tab = (char*)malloc(sizeof(char) *
-					((ft_strlen(s1) + ft_strlen((s2)) + 1)))))
-		return (0);
-	while (s1[i])
-		tab[count++] = s1[i++];
-	while (s2[j])
-		tab[count++] = s2[j++];
-	tab[count] = '\0';
-	free(s1);
-	free(s2);
-	return (tab);
+	bufsize = ft_strlen(convptr);
+	out->width = out->width - bufsize < 0 ? 0 : out->width - bufsize;
+	if (out->width)
+	{
+		if (out->flag & MINUS)
+			while(out->width--)
+				convptr = ft_strjoin(convptr, ft_strdup(" "));
+		else
+			while(out->width--)
+				convptr = ft_strjoin(ft_strdup(" "), convptr);
+	}
+	return (out->str = convptr);
 }
