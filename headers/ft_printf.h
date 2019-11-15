@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 11:57:16 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/15 16:55:23 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/15 18:15:41 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char		*ft_substr(char *s, int start, int len);
 char		*argstr(t_struct *out,char *convstr);
 char		*argnum(t_struct *out, char *convchar);
 char		*ft_strdup(char *s);
-char		*ft_toupper(char *str);
+char		*ft_tolower(char *str);
 char		*ft_itoa_base(long long c, int n_base);
 char		*ft_strjoin(char *s1, char *s2);
 int			ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 14:00:05 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/15 16:55:40 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/15 18:34:47 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,16 @@ t_struct    *ft_create_str(t_struct *out, va_list ap)
 	char	*convchar;
 
 	convchar = ft_conversion(out, ap);
+	if (out->conversion == 'x' || out->conversion == 'p')
+		convchar = ft_tolower(convchar);
 	if (out->conversion == 'p')
 		convchar = ft_strjoin(ft_strdup("0x"), convchar);
-	if (out->conversion == 'X')
-		convchar = ft_toupper(convchar);
+	
 	if (out->conversion == 'd' || out->conversion == 'u' || out->conversion == 'i' || out->conversion == 'X' || out->conversion == 'x')
 		out->str = argnum(out, convchar);
 	if (out->conversion == 's')
 	 	out->str = argstr(out, convchar);
-	if (out->conversion == 'p' || out->conversion == 'c')
+	if (out->conversion == 'p' || out->conversion == 'c' || out->conversion == '%')
 	 	out->str = argptr(out, convchar);
 	return (out);
 }

@@ -6,8 +6,7 @@
 
 int main(void)
 {
-	ft_printf("%-5.0u\n",0);
-	printf("%-5.0u\n",0);
-	sleep(10);
+	ft_printf("%7.5s", "yolo");
+	// printf("%05%\n");
 	return (0);
 }
