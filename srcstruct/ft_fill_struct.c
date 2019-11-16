@@ -6,17 +6,17 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:08:50 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/15 18:07:16 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/16 13:44:01 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_struct    *ft_fill_struct(t_struct *out,const char *str, va_list ap)
+const char		*flag_zero_minus(t_struct *out, const char *str)
 {
-	while (*str == '-' || *str == '0')	
+	while (*str == '-' || *str == '0')
 	{
-		if(*str == '-' || *str == '0')
+		if (*str == '-' || *str == '0')
 		{
 			if (*str == '-')
 				out->flag |= MINUS;
@@ -25,6 +25,12 @@ t_struct    *ft_fill_struct(t_struct *out,const char *str, va_list ap)
 		}
 		str++;
 	}
+	return (str);
+}
+
+t_struct		*ft_fill_struct(t_struct *out, const char *str, va_list ap)
+{
+	str = flag_zero_minus(out, str);
 	if (*str == '*')
 		out->width = va_arg(ap, int);
 	if (ft_isdigit(*str) == 1)
@@ -36,16 +42,17 @@ t_struct    *ft_fill_struct(t_struct *out,const char *str, va_list ap)
 		out->flag |= DOT;
 		str++;
 		if (*str == '*')
-			out->precision = va_arg(ap, int);
+			out->pre = va_arg(ap, int);
 		else
-			out->precision = ft_atoi(str);
+			out->pre = ft_atoi(str);
 		while (ft_isdigit(*str) == 1 || *str == '*')
 			str++;
 	}
-	if (*str == 'd' || *str == 'u' || *str == 'i' || *str == 'c' || *str == 's' || *str == 'p'
+	if (*str == 'd' || *str == 'u' || *str == 'i'
+		|| *str == 'c' || *str == 's' || *str == 'p'
 			|| *str == 'X' || *str == 'x' || *str == '%')
 		out->conversion = *str;
 	if (out->flag & (DOT | MINUS))
 		out->flag &= ~ZERO;
-	return(out);
+	return (out);
 }

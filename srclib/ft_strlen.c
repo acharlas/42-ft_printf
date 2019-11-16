@@ -6,13 +6,13 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 18:43:29 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/15 17:13:58 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/16 12:12:50 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_strlen( char *s)
+int		ft_strlen(char *s)
 {
 	int i;
 

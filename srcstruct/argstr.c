@@ -6,13 +6,13 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 15:46:44 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/15 18:55:18 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/16 13:44:01 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*argstr(t_struct *out,char *convstr)
+char	*argstr(t_struct *out, char *convstr)
 {
 	int	bufsize;
 
@@ -22,16 +22,16 @@ char	*argstr(t_struct *out,char *convstr)
 		convstr = ft_strdup("(null)");
 	}
 	if (out->flag & DOT)
-		convstr = ft_strndup(convstr, out->precision);
+		convstr = ft_strndup(convstr, out->pre);
 	bufsize = ft_strlen(convstr);
 	out->width = out->width - bufsize < 0 ? 0 : out->width - bufsize;
 	if (out->width)
 	{
 		if (out->flag & MINUS)
-			while(out->width--)
+			while (out->width-- > 0)
 				convstr = ft_strjoin(convstr, ft_strdup(" "));
 		else
-			while(out->width--)
+			while (out->width-- > 0)
 				convstr = ft_strjoin(ft_strdup(" "), convstr);
 	}
 	return (out->str = convstr);

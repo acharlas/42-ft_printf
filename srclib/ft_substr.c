@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:26:46 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/15 16:55:12 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/16 12:13:56 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	return (len);
 }
 
-char	*ft_substr(char *s, int start, int len)
+char			*ft_substr(char *s, int start, int len)
 {
 	char	*dst;
 
