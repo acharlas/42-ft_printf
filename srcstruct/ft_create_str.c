@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 14:00:05 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/16 12:45:38 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/19 15:45:00 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char		*ft_conversion(t_struct *out, va_list ap)
 		convchar = ft_itoa_base(va_arg(ap, unsigned int), 16);
 	else if (out->conversion == '%')
 		convchar = ft_strdup("%");
+	else
+		(void)va_arg(ap, void *);
 	return (convchar);
 }
 
