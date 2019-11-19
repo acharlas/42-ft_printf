@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:31:07 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/19 13:01:52 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/19 16:36:58 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_special_join(char *s1, char *s2, int len1, int len2)
 	out = malloc(sizeof(char) * len1 + len2);
 	ft_memcpy(out, s1, len1);
 	ft_memcpy(out + len1, s2, len2);
+	free(s1);
+	free(s2);
 	return (out);
 }
 

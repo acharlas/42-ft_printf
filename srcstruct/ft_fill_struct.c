@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:08:50 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/19 14:00:40 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/19 16:43:36 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,22 @@ const char		*flag_zero_minus(t_struct *out, const char **str)
 	return (*str);
 }
 
+t_struct		*ft_startisborn(t_struct *out, va_list ap)
+{
+	out->width = va_arg(ap, int);
+	if (out->width < 0)
+	{
+		out->width *= -1;
+		out->flag |= MINUS;
+	}
+	return (out);
+}
+
 t_struct		*ft_fill_struct(t_struct *out, const char **str, va_list ap)
 {
 	*str = flag_zero_minus(out, str);
 	if (**str == '*')
-		out->width = va_arg(ap, int);
+		out = ft_startisborn(out, ap);
 	if (ft_isdigit(**str) == 1)
 		out->width = ft_atoi(*str);
 	while (ft_isdigit(**str) == 1 || **str == '*')

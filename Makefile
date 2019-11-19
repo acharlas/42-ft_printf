@@ -6,7 +6,7 @@
 #    By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 11:01:37 by acharlas          #+#    #+#              #
-#    Updated: 2019/11/19 13:02:45 by acharlas         ###   ########.fr        #
+#    Updated: 2019/11/19 16:44:49 by acharlas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ OBJ = $(SRC:.c=.o)
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -g3 -I headers
+CFLAGS = -Wall -Wextra -Werror -I headers
 
 all : $(NAME)
 
