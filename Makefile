@@ -6,7 +6,7 @@
 #    By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 11:01:37 by acharlas          #+#    #+#              #
-#    Updated: 2019/11/19 16:44:49 by acharlas         ###   ########.fr        #
+#    Updated: 2019/11/19 16:54:17 by acharlas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,6 @@ SRC = ./srclib/ft_atoi.c \
 @CC = gcc
 
 OBJ = $(SRC:.c=.o)
-
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror -I headers
 
