@@ -6,7 +6,7 @@
 #    By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 11:01:37 by acharlas          #+#    #+#              #
-#    Updated: 2019/11/15 18:16:00 by acharlas         ###   ########.fr        #
+#    Updated: 2019/11/19 13:02:45 by acharlas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC = ./srclib/ft_atoi.c \
 	  ./srclib/ft_strndup.c \
 	  ./srclib/ft_substr.c \
 	  ./srclib/ft_tolower.c \
+	  ./srclib/ft_memcpy.c \
 	  ./srcstruct/ft_create_str.c \
 	  ./srcstruct/ft_fill_struct.c \
 	  ./srcstruct/init_struct.c \

@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:08:50 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/16 13:44:01 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/18 11:17:49 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,10 @@ const char		*flag_zero_minus(t_struct *out, const char *str)
 {
 	while (*str == '-' || *str == '0')
 	{
-		if (*str == '-' || *str == '0')
-		{
-			if (*str == '-')
-				out->flag |= MINUS;
-			else
-				out->flag |= ZERO;
-		}
+		if (*str == '-')
+			out->flag |= MINUS;
+		else
+			out->flag |= ZERO;
 		str++;
 	}
 	return (str);

@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_struct.c                                      :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/16 12:27:18 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/19 11:36:43 by acharlas         ###   ########.fr       */
+/*   Created: 2019/11/19 13:01:12 by acharlas          #+#    #+#             */
+/*   Updated: 2019/11/19 13:01:24 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_struct	*ft_init_struct(t_struct *out)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	out->str = NULL;
-	out->pre = 0;
-	out->width = 0;
-	out->conversion = '\0';
-	out->flag = 0;
-	out->len = 0;
-	return (out);
+	char	*pdst;
+
+	pdst = (char *)dst;
+	while (n-- && (dst || src))
+		*pdst++ = *(char *)src++;
+	return (dst);
 }

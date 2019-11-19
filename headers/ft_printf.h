@@ -6,7 +6,7 @@
 /*   By: acharlas <acharlas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 11:57:16 by acharlas          #+#    #+#             */
-/*   Updated: 2019/11/16 13:44:01 by acharlas         ###   ########.fr       */
+/*   Updated: 2019/11/19 13:01:41 by acharlas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ typedef struct	s_struct
 	int		width;
 	char	conversion;
 	int		flag : 3;
+	int		len;
 
 }				t_struct;
 
 t_struct		*ft_init_struct(t_struct *out);
 t_struct		*ft_fill_struct(t_struct *out, const char *str, va_list ap);
 t_struct		*ft_create_str(t_struct *out, va_list ap);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
 char			*ft_strndup(char *s, int n);
 char			*argptr(t_struct *out, char *convptr);
 char			*ft_substr(char *s, int start, int len);
